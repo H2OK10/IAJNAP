@@ -4,26 +4,54 @@
 <head>
  
 	<title>Login/Cadastro</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>       	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>       
+
+<style>
+
+body {
+  background color = black;
+  color = lawngreen;
+  margin-left = 60px;
+}
+
+h2 {
+  margin-top = 80px;
+  margin-left = 20px;
+}
+
+h3 {
+  margin-left = 20px;
+}
+
+p {
+  margin-left = 18px;
+}
+
+input {
+  background color = gray;
+  color = white;
+}
+
+</style>
+
 
 </head>
  
 <body>
 
-      <center style="border : 1px solid black;">   
-          <h2>As incriveis aventuras de joaozinho no arquipelago da morte</h2> <br>
-          <h3>Faça já seu cadastro !</h3> <br> <br>
+         
+          <h2>As incriveis aventuras de joaozinho no arquipelago da morte</h2> <br> <br>
+          <h3>Faça já seu cadastro !</h3> <br>
           <div id="errCad"></div> <br> <br>
-          Nick :<input type="text" id="iNickCad"><br> <br>
+<p>       Nick :<input type="text" id="iNickCad"><br> <br> </p>
           Senha : <input type="password" id="iPassCad"> <br> <br>
-          <input type="button" id="btnCad" value="Fazer cadastro"> <br> <br>
-          <h3>  Faça login em sua conta ! </h3> <br> <br>
+         <input type="button" id="btnCad" value="Fazer cadastro"> <br> <br> <br> <br>
+          <h3>  Faça login em sua conta ! </h3> <br>
           <div id="errLog"></div> <br>  <br>
-          Nick :<input type="text" id="iNickLog"><br> <br>
+<p>       Nick :<input type="text" id="iNickLog"><br> <br> </p>
           Senha : <input type="password" id="iPassLog"> <br> <br> 
           <input type="button" id="btnLog" value="Fazer login"> <br> <br>   
-
-      </center>       
+             
 
       <script>
 
