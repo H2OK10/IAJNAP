@@ -1,0 +1,68 @@
+<!DOCTYTPE html>
+<html>
+
+<head>
+ 
+	<title>Login/Cadastro</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>       	
+
+</head>
+ 
+<body>
+
+      <center style="border : 1px solid black;">   
+          <h2>As incriveis aventuras de joaozinho no arquipelago da morte</h2> <br>
+          <h3>Faça já seu cadastro !</h3> <br> <br>
+          <div id="errCad"></div> <br> <br>
+          Nick :<input type="text" id="iNickCad"><br> <br>
+          Senha : <input type="password" id="iPassCad"> <br> <br>
+          <input type="button" id="btnCad" value="Fazer cadastro"> <br> <br>
+          <h3>  Faça login em sua conta ! </h3> <br> <br>
+          <div id="errLog"></div> <br>  <br>
+          Nick :<input type="text" id="iNickLog"><br> <br>
+          Senha : <input type="password" id="iPassLog"> <br> <br> 
+          <input type="button" id="btnLog" value="Fazer login"> <br> <br>   
+
+      </center>       
+
+      <script>
+
+		$(document).ready(function() {
+
+        		$("#btnCad").click(function() {
+
+                		var nickCad = document.getElementById('iNickCad').value;
+                		var passCad = document.getElementById('iPassCad').value;
+                		var errCadDiv = document.getElementById('errCad');
+                		$.post('./php/cadastro.php',"nickcad=" + nickCad + "&passcad=" + passCad,function(data) {
+
+                        		errCadDiv.innerHTML = data;
+                        		if(data == "Conta criada com sucesso!!") {
+
+                                		alert("Foi!");
+
+                        		};
+                		});
+        		});
+			
+        		$("#btnLog").click(function() {
+
+                     		var nickLog = document.getElementById('iNickLog').value;
+                     		var passLog = document.getElementById('iPassLog').value;
+                     		var errLogDiv = document.getElementById('errLog');
+                     		$.post('./php/login.php',"nicklog=" + nickLog + "&passlog=" + passLog,function(data) {
+
+                                		errLogDiv.innerHTML = data;
+                                		if(data == "Você efetuou o login com sucesso!") {
+
+                                        		alert("Foi!");
+
+                                		};
+                     		});
+        		});
+		});
+
+      </script>
+</body>
+
+</html>
