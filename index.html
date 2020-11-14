@@ -68,7 +68,7 @@
                         		errCadDiv.innerHTML = data; /* imprime na div de erros o retorno do servidor*/
                         		if(data == "Conta criada com sucesso!!") { /*verifica se o cadastro foi bem-sucedido*/
 
-                                		alert("Foi!"); 
+                                		window.location.href = "./html/menu.html"; /* muda para o menu*/ 
 
                         		};
                 		});
@@ -81,12 +81,12 @@
                      		var errLogDiv = document.getElementById('errLog'); /* seleciona a div de erros*/
                      		$.post('./php/login.php',"nicklog=" + nickLog + "&passlog=" + passLog,function(data) { /*faz uma requisição para o servidor*/
 
-                                		errLogDiv.innerHTML = data; /*imprime na div de erros o retorno do servidor*/
-                                		if(data == "Você efetuou o login com sucesso!") { /* verifica se o cadastro foi bem-sucedido*/
+                                	errLogDiv.innerHTML = data; /*imprime na div de erros o retorno do servidor*/
+                                	if(data == "Você efetuou o login com sucesso!") { /* verifica se o cadastro foi bem-sucedido*/
 
-                                        		alert("Foi!");
+                                        	window.location.href = "./html/menu.html"; /* muda para o menu*/
 
-                                		};
+                                	};
                      		});
         		});
 		});
