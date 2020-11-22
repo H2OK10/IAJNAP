@@ -3,61 +3,90 @@
 
 <head>
  
-	<title>Login/Cadastro</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>       	
+	<title>Login e Cadastro</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!--cdn do jquery-->
+
+	<style>
+
+		body {
+
+  			background-color : black;
+  			color : lawngreen;
+  			margin-left : 60px;
+		}
+
+		h2 {
+  			margin-top : 80px;
+  			margin-left : 20px;
+		}
+
+		h3 {
+  			margin-left : 20px;
+		}
+
+		p {
+  			margin-left : 18px;
+		}
+
+		input {
+  			background-color : gray;
+  			color : white;
+		}
+
+	</style	>
+
 
 </head>
  
 <body>
 
-      <center style="border : 1px solid black;">   
-          <h2>As incriveis aventuras de joaozinho no arquipelago da morte</h2> <br>
-          <h3>Faça já seu cadastro !</h3> <br> <br>
+         
+          <h2>As incriveis aventuras de joaozinho no arquipelago da morte</h2> <br> <br>
+          <h3>Faça já seu cadastro !</h3> <br>
           <div id="errCad"></div> <br> <br>
-          Nick :<input type="text" id="iNickCad"><br> <br>
+<p>       Nick :<input type="text" id="iNickCad"><br> <br> </p>
           Senha : <input type="password" id="iPassCad"> <br> <br>
-          <input type="button" id="btnCad" value="Fazer cadastro"> <br> <br>
-          <h3>  Faça login em sua conta ! </h3> <br> <br>
+         <input type="button" id="btnCad" value="Fazer cadastro"> <br> <br> <br> <br>
+          <h3>  Faça login em sua conta ! </h3> <br>
           <div id="errLog"></div> <br>  <br>
-          Nick :<input type="text" id="iNickLog"><br> <br>
+<p>       Nick :<input type="text" id="iNickLog"><br> <br> </p>
           Senha : <input type="password" id="iPassLog"> <br> <br> 
           <input type="button" id="btnLog" value="Fazer login"> <br> <br>   
-
-      </center>       
+             
 
       <script>
 
-		$(document).ready(function() {
+		$(document).ready(function() { /* cria a função que é executada no momento em que o documento é carregado*/
 
-        		$("#btnCad").click(function() {
+        		$("#btnCad").click(function() { /* cria um ouvinte para o evento click no botão de cadastro*/
 
-                		var nickCad = document.getElementById('iNickCad').value;
-                		var passCad = document.getElementById('iPassCad').value;
-                		var errCadDiv = document.getElementById('errCad');
-                		$.post('./php/cadastro.php',"nickcad=" + nickCad + "&passcad=" + passCad,function(data) {
+                		var nickCad = document.getElementById('iNickCad').value; /* pega o nome do usuario*/
+                		var passCad = document.getElementById('iPassCad').value; /* pega a senha do usuario*/
+                		var errCadDiv = document.getElementById('errCad'); /* seleciona a div de erros*/
+                		$.post('./php/cadastro.php',"nickcad=" + nickCad + "&passcad=" + passCad,function(data) { /* faz uma requisição para o servidor*/
 
-                        		errCadDiv.innerHTML = data;
-                        		if(data == "Conta criada com sucesso!!") {
+                        		errCadDiv.innerHTML = data; /* imprime na div de erros o retorno do servidor*/
+                        		if(data == "Conta criada com sucesso!!") { /*verifica se o cadastro foi bem-sucedido*/
 
-                                		alert("Foi!");
+                                		window.location.href = "./html/menu.html"; /* muda para o menu*/ 
 
                         		};
                 		});
         		});
 			
-        		$("#btnLog").click(function() {
+        		$("#btnLog").click(function() { /* cria um ouvinte para o evento click no botão de login*/
 
-                     		var nickLog = document.getElementById('iNickLog').value;
-                     		var passLog = document.getElementById('iPassLog').value;
-                     		var errLogDiv = document.getElementById('errLog');
-                     		$.post('./php/login.php',"nicklog=" + nickLog + "&passlog=" + passLog,function(data) {
+                     		var nickLog = document.getElementById('iNickLog').value; /*pega o nome do usuario*/
+                     		var passLog = document.getElementById('iPassLog').value; /*pega a senha do usuario*/
+                     		var errLogDiv = document.getElementById('errLog'); /* seleciona a div de erros*/
+                     		$.post('./php/login.php',"nicklog=" + nickLog + "&passlog=" + passLog,function(data) { /*faz uma requisição para o servidor*/
 
-                                		errLogDiv.innerHTML = data;
-                                		if(data == "Você efetuou o login com sucesso!") {
+                                	errLogDiv.innerHTML = data; /*imprime na div de erros o retorno do servidor*/
+                                	if(data == "Você efetuou o login com sucesso!") { /* verifica se o cadastro foi bem-sucedido*/
 
-                                        		alert("Foi!");
+                                        	window.location.href = "./html/menu.html"; /* muda para o menu*/
 
-                                		};
+                                	};
                      		});
         		});
 		});
